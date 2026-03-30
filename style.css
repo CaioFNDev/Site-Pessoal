@@ -1,0 +1,805 @@
+/* Configurações Globais e Variáveis */
+:root {
+    --bg-color: #0f172a;
+    --surface-color: #1e293b;
+    --primary-color: #3b82f6;
+    --primary-hover: #2563eb;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --accent-color: #10b981;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header e Navegação */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5%;
+    background-color: rgba(15, 23, 42, 0.9);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.logo span {
+    color: var(--primary-color);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: var(--text-main);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--primary-color);
+}
+
+/* Seção Hero (Principal) */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6rem 5% 4rem;
+    gap: 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.hero-content {
+    flex: 1;
+}
+
+.saudacao {
+    color: var(--accent-color);
+    font-weight: 600;
+    font-size: 1.1rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+h1 {
+    font-size: 4rem;
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+    color: #ffffff;
+}
+
+h2 {
+    font-size: 1.8rem;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--text-muted);
+    margin-bottom: 2.5rem;
+    max-width: 500px;
+}
+
+/* Botões */
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn {
+    padding: 0.8rem 1.8rem;
+    border-radius: 6px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    border: 1px solid var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--text-main);
+    border: 1px solid var(--text-muted);
+}
+
+.btn-secondary:hover {
+    border-color: var(--text-main);
+    background-color: rgba(255, 255, 255, 0.05);
+    transform: translateY(-2px);
+}
+
+/* Imagem de Perfil com Efeito Neon */
+.hero-image-container {
+    position: relative;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.foto-perfil {
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    object-fit: cover;
+    position: relative;
+    z-index: 2;
+    border: 4px solid var(--surface-color);
+}
+
+.backdrop-glow {
+    position: absolute;
+    width: 340px;
+    height: 340px;
+    background: radial-gradient(circle, var(--primary-color) 0%, rgba(59, 130, 246, 0) 70%);
+    border-radius: 50%;
+    top: -10px;
+    z-index: 1;
+    opacity: 0.4;
+    filter: blur(20px);
+}
+
+/* Seção de Destaques (Cards) */
+.highlights {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 2rem 5% 5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.card {
+    background-color: var(--surface-color);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
+}
+
+.card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-main);
+}
+
+.card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+/* Rodapé */
+footer {
+    margin-top: auto;
+    text-align: center;
+    padding: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* Responsividade Básica */
+@media (max-width: 900px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 3rem;
+    }
+    .hero-content p {
+        margin: 0 auto 2.5rem;
+    }
+    .hero-buttons {
+        justify-content: center;
+    }
+    h1 { font-size: 3rem; }
+}
+
+/* 
+   ESTILOS ESPECÍFICOS - PÁGINAS INTERNAS
+ */
+
+.page-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 5%;
+    width: 100%;
+    flex: 1;
+}
+
+.sobre-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.sobre-header h1 {
+    font-size: 3rem;
+    color: var(--text-main);
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    color: var(--accent-color);
+    font-size: 1.1rem;
+}
+
+.sobre-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    background-color: var(--surface-color);
+    padding: 3rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.bio h2, .curriculo h2 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 0.5rem;
+}
+
+.bio p {
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    font-size: 1.05rem;
+}
+
+.resume-item {
+    margin-bottom: 2rem;
+}
+
+.resume-item h3 {
+    color: var(--text-main);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.resume-item ul {
+    list-style: none;
+    color: var(--text-muted);
+}
+
+.resume-item ul li {
+    margin-bottom: 0.8rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.resume-item ul li::before {
+    content: "▹";
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+}
+
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+.skill-tag {
+    background-color: rgba(59, 130, 246, 0.15);
+    color: var(--primary-color);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    transition: all 0.3s ease;
+}
+
+.skill-tag:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* Responsividade para a página Sobre */
+@media (max-width: 900px) {
+    .sobre-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 2rem;
+    }
+}
+
+/* 
+   ESTILOS ESPECÍFICOS - PORTFÓLIO
+*/
+
+.portfolio-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.portfolio-header h1 {
+    font-size: 3rem;
+    color: var(--text-main);
+    margin-bottom: 0.5rem;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2.5rem;
+}
+
+.project-card {
+    background-color: var(--surface-color);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+    border-color: rgba(59, 130, 246, 0.3);
+}
+
+.project-image {
+    width: 100%;
+    height: 200px;
+    background-color: #0f172a;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Placeholder para imagens dos projetos (já que não temos imagens reais no momento) */
+.img-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--text-muted);
+    font-weight: 600;
+    background: linear-gradient(45deg, #1e293b, #0f172a);
+}
+
+.project-info {
+    padding: 1.8rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.project-info h3 {
+    color: var(--text-main);
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+}
+
+.project-info p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    flex: 1; /* Faz o parágrafo ocupar o espaço restante, empurrando os botões para baixo */
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.project-tags span {
+    background-color: rgba(16, 185, 129, 0.1);
+    color: var(--accent-color);
+    padding: 0.3rem 0.8rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.project-links {
+    margin-top: auto;
+}
+
+.project-links .btn {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    padding: 0.6rem;
+}
+
+/* 
+   ESTILOS ESPECÍFICOS - NOVIDADES
+*/
+
+.novidades-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.novidades-header h1 {
+    font-size: 3rem;
+    color: var(--text-main);
+    margin-bottom: 0.5rem;
+}
+
+.news-feed {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.news-item {
+    background-color: var(--surface-color);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    overflow: hidden;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.news-item:hover {
+    transform: translateX(10px);
+    border-color: rgba(16, 185, 129, 0.4);
+}
+
+.news-image {
+    width: 250px;
+    min-width: 250px;
+    background-color: #0f172a;
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.img-placeholder-small {
+    width: 100%;
+    height: 100%;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    font-weight: 600;
+    background: linear-gradient(135deg, #1e293b, #0f172a);
+}
+
+.news-content-wrapper {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.news-date {
+    display: inline-block;
+    color: var(--accent-color);
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.news-content h2 {
+    color: var(--text-main);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.news-content p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.read-more {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+    margin-top: auto;
+    align-self: flex-start;
+}
+
+.read-more:hover {
+    color: #fff;
+}
+
+/* Responsividade para a página de Novidades */
+@media (max-width: 768px) {
+    .news-item {
+        flex-direction: column;
+    }
+    .news-item:hover {
+        transform: translateY(-5px);
+    }
+    .news-image {
+        width: 100%;
+        height: 180px;
+        min-height: 180px;
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+}
+
+/* 
+   ESTILOS ESPECÍFICOS - CONTATO
+*/
+
+.contato-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.contato-header h1 {
+    font-size: 3rem;
+    color: var(--text-main);
+    margin-bottom: 0.5rem;
+}
+
+.contato-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    background-color: var(--surface-color);
+    padding: 3rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.contato-info h2, .contato-form h2 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 0.5rem;
+}
+
+.contato-info > p {
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.info-item {
+    margin-bottom: 1.5rem;
+}
+
+.info-item h3 {
+    color: var(--text-main);
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+}
+
+.info-item p {
+    color: var(--text-muted);
+}
+
+.redes-sociais h3 {
+    color: var(--text-main);
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.social-btn {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--text-main);
+    text-decoration: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.social-btn:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    color: var(--text-main);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    background-color: #0f172a;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    color: var(--text-main);
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+.submit-btn {
+    width: 100%;
+    cursor: pointer;
+    font-size: 1.1rem;
+    margin-top: 1rem;
+    border: none;
+}
+
+@media (max-width: 900px) {
+    .contato-content {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+}
+
+/*
+   ESTILOS ESPECÍFICOS - PÁGINA DE ARTIGO
+*/
+
+.article-container {
+    max-width: 800px; /* Mais estreito para facilitar a leitura */
+    margin: 0 auto;
+    padding: 2rem 5% 5rem;
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 2rem;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.back-link:hover {
+    color: var(--text-main);
+}
+
+.article-header {
+    text-align: center;
+    margin-bottom: 4rem; /* Mais espaço para o corpo */
+}
+
+/* Nova meta-informação centralizada e formatada */
+.article-meta {
+    color: var(--accent-color); /* Use a cor de acento (verde) */
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem; /* Espaço entre o autor e a data */
+    align-items: center;
+}
+
+.article-meta a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+.article-meta a:hover {
+    color: var(--text-main);
+}
+
+.article-header h1 {
+    font-size: 3rem; /* Título maior e mais imponente */
+    color: var(--text-main);
+    margin-bottom: 0;
+    line-height: 1.1;
+}
+
+.article-body {
+    background-color: var(--surface-color);
+    padding: 4rem 3rem; /* Mais padding vertical */
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: 4px solid var(--primary-color); /* Borda superior de destaque */
+}
+
+.article-body p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    line-height: 1.8; /* Aumentar ligeiramente para melhor legibilidade */
+    margin-bottom: 1.8rem; /* Aumentar margem inferior */
+}
+
+.article-body h2 {
+    color: var(--text-main);
+    font-size: 1.6rem; /* Um pouco maior */
+    margin-top: 3.5rem; /* MAIS margem superior para respirar */
+    margin-bottom: 1.2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Linha sutil abaixo */
+    padding-bottom: 0.5rem;
+}
+
+/* Estilos para listas, já que você as usa no código. */
+.article-body ul {
+    margin-left: 1.5rem;
+    margin-bottom: 1.8rem;
+    color: var(--text-muted);
+}
+
+.article-body li {
+    margin-bottom: 0.8rem;
+    line-height: 1.6;
+}
+
+/* Estilo para citações (blockquote) - dá um ar de artigo de verdade. */
+.article-body blockquote {
+    border-left: 4px solid var(--accent-color);
+    padding-left: 1.5rem;
+    margin: 2.5rem 0;
+    color: #fff;
+    font-style: italic;
+    font-size: 1.2rem;
+}
