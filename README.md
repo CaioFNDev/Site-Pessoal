@@ -40,9 +40,3 @@ O desenvolvimento seguiu rigorosamente as diretrizes do sistema de avaliação d
 - **UI/UX:** Design focado no padrão "Dark Mode", proporcionando uma leitura confortável e um visual alinhado ao mercado de tecnologia.
 
 ---
-
-## 🚀 Como rodar o projeto localmente
-
-1. Clone este repositório:
-   ```bash
-   git clone [https://caiofndev.github.io/Site-Pessoal/](https://caiofndev.github.io/Site-Pessoal/)
